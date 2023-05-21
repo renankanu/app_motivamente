@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "832366168320",
+    "project_id": "motivamente-dd05a",
+    "storage_bucket": "motivamente-dd05a.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:832366168320:android:9a958d3347c0e3b5488be5",
+        "android_client_info": {
+          "package_name": "br.com.renankanu.moti_mente"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "832366168320-129usbb3rkqqm6afl0bnq56vs22ldrv0.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAW0hAQsgT04Du4EvMarUTVYJPN7K93dX8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "832366168320-129usbb3rkqqm6afl0bnq56vs22ldrv0.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
