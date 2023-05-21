@@ -17,6 +17,8 @@ dependencies:
   google_fonts: ^4.0.4
   lottie: ^2.3.2
   flutter_animate: ^4.1.1+1
+  dio: ^5.1.2
+  get_it: ^7.6.0
 
 dev_dependencies:
   flutter_test:

@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
+import 'package:go_router/go_router.dart';
 import 'package:lottie/lottie.dart';
 
+import '../../routes/app_routes.dart';
 import '../../shared/shared.dart';
 
 class HomeView extends StatelessWidget {
@@ -23,7 +25,7 @@ class HomeView extends StatelessWidget {
               ),
               const SizedBox(height: 20),
               ElevatedButton(
-                onPressed: () {},
+                onPressed: () => context.push(AppRoutes.message),
                 style: ElevatedButton.styleFrom(
                   elevation: 10,
                   shape: RoundedRectangleBorder(
@@ -41,7 +43,7 @@ class HomeView extends StatelessWidget {
                     begin: Offset.zero,
                     end: const Offset(1, 1),
                     curve: Curves.fastOutSlowIn,
-                    duration: 1.seconds,
+                    duration: 600.ms,
                   )
             ],
           )

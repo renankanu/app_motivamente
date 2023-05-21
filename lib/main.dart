@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
+import 'app/routes/app_routes.dart';
 import 'app/shared/theme/app_theme.dart';
-import 'app/views/home/home_view.dart';
 
 void main() {
   runApp(const MyApp());
@@ -12,11 +12,11 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return MaterialApp.router(
       title: 'Motivamente',
       theme: AppTheme.theme,
-      home: const HomeView(),
       debugShowCheckedModeBanner: false,
+      routerConfig: AppRoutes.router,
     );
   }
 }

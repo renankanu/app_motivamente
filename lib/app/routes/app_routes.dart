@@ -1,7 +1,7 @@
-import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
 import '../views/home/home_view.dart';
+import '../views/message/message_view.dart';
 
 abstract class AppRoutes {
   static const String _home = '/';
@@ -17,7 +17,7 @@ abstract class AppRoutes {
         routes: [
           GoRoute(
             path: _message,
-            builder: (context, state) => Container(),
+            builder: (context, state) => const MessageView(),
           ),
         ],
       ),
