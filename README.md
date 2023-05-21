@@ -1,16 +1,8 @@
-# moti_mente
+# Motivamente
 
-A new Flutter project.
+Motivamente é um app, que vai gerar uma mensagem motivacional para você, quando você estiver se sentindo para baixo.
+As mensagens são geradas aleatoriamente, e são baseadas em frases motivacionais. As mensagens podem ser compartilhadas com seus amigos, e você pode salvar as mensagens que você mais gostou.
 
-## Getting Started
-
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+<div style="display: flex; justify-content: center;">
+<img src="assets/icons/ic_launcher.png" style="height:200px; width: 200px"> 
+</div>
