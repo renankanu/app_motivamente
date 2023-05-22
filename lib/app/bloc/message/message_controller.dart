@@ -19,11 +19,14 @@ class MessageController extends Cubit<MessageState> {
 
   Future<void> getRandomMessage() async {
     try {
-      QuotableMessage response = await repository.fetchQuote();
+      final response = await repository.fetchQuote();
       final (message, translated) = await _translateMessage(response.content);
       if (translated) {
-        response.copyWith(content: message);
-        emit(MessageSuccess(response));
+        final quoteMessage = QuotableMessage(
+          content: message,
+          author: response.author,
+        );
+        emit(MessageSuccess(quoteMessage));
         return;
       }
       emit(MessageError('Erro ao traduzir sua mensagem!'));
