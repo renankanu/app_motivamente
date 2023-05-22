@@ -1,3 +1,5 @@
+import '../../model/quotable_message.dart';
+
 sealed class MessageState {}
 
 class MessageInitial extends MessageState {}
@@ -5,11 +7,11 @@ class MessageInitial extends MessageState {}
 class MessageLoading extends MessageState {}
 
 class MessageSuccess extends MessageState {
-  MessageSuccess(this.appMessage);
-  final String appMessage;
+  MessageSuccess(this.message);
+  final QuotableMessage message;
 }
 
 class MessageError extends MessageState {
-  MessageError(this.appMessage);
-  final String appMessage;
+  MessageError(this.errorMessage);
+  final String errorMessage;
 }

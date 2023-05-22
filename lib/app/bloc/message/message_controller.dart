@@ -2,6 +2,7 @@ import 'package:dio/dio.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:translator/translator.dart';
 
+import '../../model/quotable_message.dart';
 import '../../repositories/quote_repository.dart';
 import 'message_state.dart';
 
@@ -18,10 +19,11 @@ class MessageController extends Cubit<MessageState> {
 
   Future<void> getRandomMessage() async {
     try {
-      final response = await repository.fetchQuote();
+      QuotableMessage response = await repository.fetchQuote();
       final (message, translated) = await _translateMessage(response.content);
       if (translated) {
-        emit(MessageSuccess(message));
+        response.copyWith(content: message);
+        emit(MessageSuccess(response));
         return;
       }
       emit(MessageError('Erro ao traduzir sua mensagem!'));
