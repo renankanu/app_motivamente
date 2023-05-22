@@ -5,9 +5,26 @@ import 'package:lottie/lottie.dart';
 
 import '../../routes/app_routes.dart';
 import '../../shared/shared.dart';
+import '../../shared/utils/user_logged.dart';
 
-class HomeView extends StatelessWidget {
+class HomeView extends StatefulWidget {
   const HomeView({super.key});
+
+  @override
+  State<HomeView> createState() => _HomeViewState();
+}
+
+class _HomeViewState extends State<HomeView> {
+  @override
+  void initState() {
+    _requestLogin();
+    super.initState();
+  }
+
+  Future<void> _requestLogin() async {
+    final user = UserLogged();
+    await user.login();
+  }
 
   @override
   Widget build(BuildContext context) {
