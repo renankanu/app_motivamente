@@ -1,37 +1,45 @@
-import 'dart:math';
-
-import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:dio/dio.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:translator/translator.dart';
 
-import '../../model/app_message.dart';
-import '../../shared/utils/user_logged.dart';
+import '../../repositories/quote_repository.dart';
 import 'message_state.dart';
 
 class MessageController extends Cubit<MessageState> {
-  MessageController() : super(MessageInitial());
+  MessageController(this.repository) : super(MessageInitial());
 
-  UserLogged user = UserLogged();
-  FirebaseFirestore firestore = FirebaseFirestore.instance;
-  CollectionReference collection =
-      FirebaseFirestore.instance.collection('motivational');
+  final QuoteRepository repository;
+  final translator = GoogleTranslator();
 
   Future<void> getMessage() async {
     emit(MessageLoading());
-    if (user.isLoggedIn) {
-      await getRandomMessage();
-    }
+    await getRandomMessage();
   }
 
   Future<void> getRandomMessage() async {
-    final querySnapshot = await collection.get();
-    final documents = querySnapshot.docs;
-    final randomIndex = Random().nextInt(documents.length);
-    final randomDocument = documents[randomIndex];
-    final data = randomDocument.data();
-    if (data != null) {
-      final map = data as Map<String, dynamic>;
-      final appMessage = AppMessage.fromJson(map);
-      emit(MessageSuccess(appMessage));
+    try {
+      final response = await repository.fetchQuote();
+      final (message, translated) = await _translateMessage(response.content);
+      if (translated) {
+        emit(MessageSuccess(message));
+        return;
+      }
+      emit(MessageError('Erro ao traduzir sua mensagem!'));
+    } on DioError catch (_) {
+      emit(MessageError('Erro ao buscar sua mensagem!'));
+    }
+  }
+
+  Future<(String, bool)> _translateMessage(String? message) async {
+    if (message == null) {
+      return ('', false);
+    }
+
+    try {
+      final translation = await translator.translate(message, to: 'pt');
+      return (translation.text, true);
+    } catch (e) {
+      return (message, false);
     }
   }
 }

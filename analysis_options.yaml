@@ -6,7 +6,10 @@ analyzer:
 
   exclude:
     - "bin/cache/**"
-    - "**/*.g.dart" 
+    - "**/*.g.dart"
+  
+  errors:
+    depend_on_referenced_packages: false
 
 linter:
   rules:

@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:go_router/go_router.dart';
 import 'package:lottie/lottie.dart';
+import 'package:translator/translator.dart';
 
 import '../../routes/app_routes.dart';
 import '../../shared/shared.dart';
-import '../../shared/utils/user_logged.dart';
 
 class HomeView extends StatefulWidget {
   const HomeView({super.key});
@@ -15,15 +15,11 @@ class HomeView extends StatefulWidget {
 }
 
 class _HomeViewState extends State<HomeView> {
+  final translator = GoogleTranslator();
+
   @override
   void initState() {
-    _requestLogin();
     super.initState();
-  }
-
-  Future<void> _requestLogin() async {
-    final user = UserLogged();
-    await user.login();
   }
 
   @override

@@ -63,7 +63,8 @@ class DefaultFirebaseOptions {
     messagingSenderId: '832366168320',
     projectId: 'motivamente-dd05a',
     storageBucket: 'motivamente-dd05a.appspot.com',
-    iosClientId: '832366168320-5ovs8k64agdsmn6emn9ld099ula523p5.apps.googleusercontent.com',
+    iosClientId:
+        '832366168320-5ovs8k64agdsmn6emn9ld099ula523p5.apps.googleusercontent.com',
     iosBundleId: 'br.com.renankanu.motiMente',
   );
 }
