@@ -5,6 +5,7 @@ import 'package:lottie/lottie.dart';
 import 'package:translator/translator.dart';
 
 import '../../routes/app_routes.dart';
+import '../../shared/app_colors.dart';
 import '../../shared/shared.dart';
 
 class HomeView extends StatefulWidget {
@@ -41,6 +42,7 @@ class _HomeViewState extends State<HomeView> {
                 onPressed: () => context.push(AppRoutes.message),
                 style: ElevatedButton.styleFrom(
                   elevation: 10,
+                  backgroundColor: AppColors.energyYellow,
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(10),
                   ),
@@ -50,6 +52,7 @@ class _HomeViewState extends State<HomeView> {
                   style: TextStyle(
                     fontSize: 16,
                     fontWeight: FontWeight.bold,
+                    color: AppColors.tundora,
                   ),
                 ),
               ).animate().scale(
