@@ -9,7 +9,6 @@ import 'package:path_provider/path_provider.dart';
 import 'package:share_plus/share_plus.dart';
 
 import '../../../model/quotable_message.dart';
-import '../../../shared/app_colors.dart';
 import '../../../shared/shared.dart';
 
 class SuccessWidget extends StatelessWidget {

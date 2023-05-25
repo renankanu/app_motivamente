@@ -5,7 +5,6 @@ import 'package:lottie/lottie.dart';
 import 'package:translator/translator.dart';
 
 import '../../routes/app_routes.dart';
-import '../../shared/app_colors.dart';
 import '../../shared/shared.dart';
 
 class HomeView extends StatefulWidget {

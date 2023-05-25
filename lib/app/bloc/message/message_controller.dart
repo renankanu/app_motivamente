@@ -29,7 +29,7 @@ class MessageController extends Cubit<MessageState> {
         emit(MessageSuccess(quoteMessage));
         return;
       }
-      emit(MessageError('Erro ao traduzir sua mensagem!'));
+      emit(MessageSuccess(response));
     } on DioError catch (_) {
       emit(MessageError('Erro ao buscar sua mensagem!'));
     }

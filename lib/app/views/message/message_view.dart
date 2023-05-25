@@ -3,7 +3,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../bloc/message/message_controller.dart';
 import '../../bloc/message/message_state.dart';
-import '../../shared/app_colors.dart';
+import '../../shared/shared.dart';
+import 'components/loading_widget.dart';
 import 'components/success_widget.dart';
 
 class MessageView extends StatefulWidget {
@@ -40,6 +41,7 @@ class _MessageViewState extends State<MessageView> {
       body: BlocConsumer<MessageController, MessageState>(
         listener: (context, state) {},
         builder: (context, state) => switch (state) {
+          MessageLoading() => const LoadingWidget(),
           MessageSuccess() => SuccessWidget(message: state.message),
           MessageError() => Center(
               child: Text(
@@ -51,9 +53,7 @@ class _MessageViewState extends State<MessageView> {
                 ),
               ),
             ),
-          _ => const Center(
-              child: CircularProgressIndicator(),
-            ),
+          _ => const SizedBox.shrink(),
         },
       ),
     );
