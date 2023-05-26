@@ -37,6 +37,13 @@ class SuccessWidget extends StatelessWidget {
     }
   }
 
+  double _getSizeString() {
+    if (message.content!.length > 260) {
+      return 16;
+    }
+    return 18;
+  }
+
   @override
   Widget build(BuildContext context) {
     final width = MediaQuery.of(context).size.width;
@@ -74,8 +81,8 @@ class SuccessWidget extends StatelessWidget {
                       Text(
                         '${message.content}',
                         textAlign: TextAlign.center,
-                        style: const TextStyle(
-                          fontSize: 18,
+                        style: TextStyle(
+                          fontSize: _getSizeString(),
                           fontWeight: FontWeight.bold,
                           color: AppColors.tundora,
                         ),

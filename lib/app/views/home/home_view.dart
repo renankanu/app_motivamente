@@ -30,10 +30,13 @@ class _HomeViewState extends State<HomeView> {
           Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Center(
-                child: LottieBuilder.asset(
-                  AppAssets.fortuneCookie,
-                  repeat: false,
+              Padding(
+                padding: const EdgeInsets.only(left: 24),
+                child: Center(
+                  child: LottieBuilder.asset(
+                    AppAssets.fortuneCookie,
+                    repeat: false,
+                  ),
                 ),
               ),
               const SizedBox(height: 20),
