@@ -12,7 +12,9 @@ As mensagens são geradas aleatoriamente, e são baseadas em frases motivacionai
 
 <br>
 <br>
+
 ## Telas
+
 <div> 
 <img src="assets/images/screen_01.png" style="width: 180px">
 <img src="assets/images/screen_02.png" style="width: 180px">
