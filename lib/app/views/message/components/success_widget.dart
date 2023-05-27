@@ -8,16 +8,16 @@ import 'package:flutter_svg/svg.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:share_plus/share_plus.dart';
 
-import '../../../model/quotable_message.dart';
+import '../../../model/quote.dart';
 import '../../../shared/shared.dart';
 
 class SuccessWidget extends StatelessWidget {
   const SuccessWidget({
     super.key,
-    required this.message,
+    required this.quote,
   });
 
-  final QuotableMessage message;
+  final Quote quote;
 
   void shareMessage(GlobalKey containerKey) async {
     final RenderRepaintBoundary boundary = containerKey.currentContext!
@@ -31,14 +31,14 @@ class SuccessWidget extends StatelessWidget {
       final xFile = XFile(file.path);
       Share.shareXFiles(
         [xFile],
-        text: message.content,
-        subject: message.author,
+        text: quote.message,
+        subject: quote.author,
       );
     }
   }
 
   double _getSizeString() {
-    if (message.content!.length > 260) {
+    if (quote.message.length > 260) {
       return 16;
     }
     return 18;
@@ -79,7 +79,7 @@ class SuccessWidget extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Text(
-                        '${message.content}',
+                        quote.message,
                         textAlign: TextAlign.center,
                         style: TextStyle(
                           fontSize: _getSizeString(),
@@ -92,7 +92,7 @@ class SuccessWidget extends StatelessWidget {
                         mainAxisAlignment: MainAxisAlignment.end,
                         children: [
                           Text(
-                            '-${message.author}',
+                            '-${quote.author}',
                             style: const TextStyle(
                               fontSize: 14,
                               fontWeight: FontWeight.w500,

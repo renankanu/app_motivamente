@@ -1,4 +1,4 @@
-import '../../model/quotable_message.dart';
+import '../../model/quote.dart';
 
 sealed class MessageState {}
 
@@ -8,7 +8,7 @@ class MessageLoading extends MessageState {}
 
 class MessageSuccess extends MessageState {
   MessageSuccess(this.message);
-  final QuotableMessage message;
+  final Quote message;
 }
 
 class MessageError extends MessageState {
