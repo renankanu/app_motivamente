@@ -42,7 +42,7 @@ class _MessageViewState extends State<MessageView> {
         listener: (context, state) {},
         builder: (context, state) => switch (state) {
           MessageLoading() => const LoadingWidget(),
-          MessageSuccess() => SuccessWidget(message: state.message),
+          MessageSuccess() => SuccessWidget(quote: state.message),
           MessageError() => Center(
               child: Text(
                 state.errorMessage,

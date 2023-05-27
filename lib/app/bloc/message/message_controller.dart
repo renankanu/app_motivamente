@@ -1,8 +1,8 @@
+import 'dart:math';
+
 import 'package:dio/dio.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:translator/translator.dart';
 
-import '../../model/quotable_message.dart';
 import '../../repositories/quote_repository.dart';
 import 'message_state.dart';
 
@@ -10,7 +10,6 @@ class MessageController extends Cubit<MessageState> {
   MessageController(this.repository) : super(MessageInitial());
 
   final QuoteRepository repository;
-  final translator = GoogleTranslator();
 
   Future<void> getMessage() async {
     emit(MessageLoading());
@@ -18,33 +17,21 @@ class MessageController extends Cubit<MessageState> {
   }
 
   Future<void> getRandomMessage() async {
+    final id = Random().nextInt(await getCount());
     try {
-      final response = await repository.fetchQuote();
-      final (message, translated) = await _translateMessage(response.content);
-      if (translated) {
-        final quoteMessage = QuotableMessage(
-          content: message,
-          author: response.author,
-        );
-        emit(MessageSuccess(quoteMessage));
-        return;
-      }
+      final response = await repository.fetchQuote(id);
       emit(MessageSuccess(response));
     } on DioError catch (_) {
       emit(MessageError('Erro ao buscar sua mensagem!'));
     }
   }
 
-  Future<(String, bool)> _translateMessage(String? message) async {
-    if (message == null) {
-      return ('', false);
-    }
-
+  Future<int> getCount() async {
     try {
-      final translation = await translator.translate(message, to: 'pt');
-      return (translation.text, true);
-    } catch (e) {
-      return (message, false);
+      final response = await repository.getCount();
+      return response;
+    } on DioError catch (_) {
+      return 1;
     }
   }
 }

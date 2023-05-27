@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:go_router/go_router.dart';
 import 'package:lottie/lottie.dart';
-import 'package:translator/translator.dart';
 
 import '../../routes/app_routes.dart';
 import '../../shared/shared.dart';
@@ -15,8 +14,6 @@ class HomeView extends StatefulWidget {
 }
 
 class _HomeViewState extends State<HomeView> {
-  final translator = GoogleTranslator();
-
   @override
   void initState() {
     super.initState();
