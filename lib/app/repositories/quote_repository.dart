@@ -9,9 +9,15 @@ class QuoteRepository {
   final RestClientDio customDio;
   final supabase = Supabase.instance.client;
 
-  Future<Quote> fetchQuote() async {
-    final data = await supabase.from('quotes').select().eq('id', 2);
+  Future<Quote> fetchQuote(int id) async {
+    final data = await supabase.from('quotes').select().eq('id', id);
     final responseMap = data[0] as Map<String, dynamic>;
     return Quote.fromJson(responseMap);
+  }
+
+  Future<int> getCount() async {
+    final data = await supabase.from('quote_count').select('count');
+    final responseMap = data[0] as Map<String, dynamic>;
+    return responseMap['count'] as int;
   }
 }

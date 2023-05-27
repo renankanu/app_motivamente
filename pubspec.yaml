@@ -27,6 +27,7 @@ dependencies:
   share_plus: ^7.0.1
   path_provider: ^2.0.15
   supabase_flutter: ^1.10.0
+  flutter_dotenv: ^5.0.2
 
 dev_dependencies:
   flutter_test:
@@ -44,3 +45,4 @@ flutter:
     - assets/icons/
     - assets/images/
     - assets/lotties/
+    - .env

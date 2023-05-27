@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:dio/dio.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -15,11 +17,21 @@ class MessageController extends Cubit<MessageState> {
   }
 
   Future<void> getRandomMessage() async {
+    final id = Random().nextInt(await getCount());
     try {
-      final response = await repository.fetchQuote();
+      final response = await repository.fetchQuote(id);
       emit(MessageSuccess(response));
     } on DioError catch (_) {
       emit(MessageError('Erro ao buscar sua mensagem!'));
+    }
+  }
+
+  Future<int> getCount() async {
+    try {
+      final response = await repository.getCount();
+      return response;
+    } on DioError catch (_) {
+      return 1;
     }
   }
 }

@@ -74,7 +74,7 @@ class SuccessWidget extends StatelessWidget {
                       duration: 500.ms,
                     ),
                 Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 60),
+                  padding: const EdgeInsets.symmetric(horizontal: 66),
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
