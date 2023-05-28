@@ -1,0 +1,55 @@
+body {
+  background-color: #ffffff;
+  font-family: "Antic Slab", sans-serif;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+}
+
+.appName {
+  font-size: 56px;
+  color: #4d4d4d;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.description {
+  font-size: 20px;
+  color: #4d4d4d;
+  font-weight: bold;
+  margin-bottom: 48px;
+}
+.container {
+  display: flex;
+  flex-direction: row;
+  margin: 0 200px;
+}
+
+.leftContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 50%;
+}
+
+.rigthContainer {
+  display: flex;
+  justify-content: center;
+  width: 50%;
+}
+
+.phone {
+  max-width: 50%;
+  height: auto;
+}
+
+.download {
+  max-width: 30%;
+  height: auto;
+  margin-top: 40px;
+}

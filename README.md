@@ -1,6 +1,6 @@
 # Motivamente APP
 
-Motivamente é um app, que vai gerar uma mensagem motivacional para você, quando você estiver se sentindo para baixo.
+Motivamente - Motivação Diária é um app, que vai gerar uma mensagem motivacional para você, quando você estiver se sentindo para baixo.
 As mensagens são geradas aleatoriamente, e são baseadas em frases motivacionais.
 
 <br>
